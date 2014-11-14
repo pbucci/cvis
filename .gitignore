@@ -3,3 +3,4 @@ bokeh/
 ref/
 *.pyc
 __pycache__/
+*.html
