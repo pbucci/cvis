@@ -29,22 +29,22 @@ colors = [
 
 # Set up the data for plotting. We will need to have values for every
 # pair of year/month names. Map the rate to a color.
-month = []
-year = []
+mon = []
+yr = []
 color = []
 ids = []
 for y in columns:
     for m in rows:
-        month.append(m)
-        year.append(y)
+        mon.append(m)
+        yr.append(y)
         color.append(colors[0])
         ids.append(c_texts[int(m) - 1][int(y)- 1])
 
 # EXERCISE: create a `ColumnDataSource` with columns: month, year, color, rate
 source = ColumnDataSource(
     data=dict(
-        month=month,
-        year=year,
+        month=mon,
+        year=yr,
         color=color,
         id=ids,
     )
@@ -53,20 +53,19 @@ source = ColumnDataSource(
 output_file('unemployment.html')
 figure()
 
-rect('year',
-     'month',
-     0.99,
-     0.99,
+rect('month',
+     'year',
+     0.95,
+     0.95,
      source=source,
      x_axis_location="above",
-     x_range=columns,
-     y_range=rows,
+     x_range=rows,
+     y_range=columns,
      color='color',
      line_color=None,
      tools="hover",
-     title="Text test",
-     plot_width=300,
-     plot_height=300)
+     plot_width=200,
+     plot_height=200)
 
 grid().grid_line_color = None
 axis().axis_line_color = None
