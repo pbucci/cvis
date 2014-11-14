@@ -1,6 +1,7 @@
 .DS_Store
 bokeh/
 ref/
-*.pyc
 __pycache__/
+*.pyc
 *.html
+
